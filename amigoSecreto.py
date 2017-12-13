@@ -25,8 +25,8 @@ def sendemail(from_addr, to_addr_list,
     return problems
 
 
-from_addr    = 'javier@javierpalmaespinosa.cl' 
-subj         = 'Amigo Secreto RD -DdC' 
+from_addr    = '' #your gmail account. Must have options for 3rd party login 
+subj         = 'Amigo Secreto' 
 message      = 'Howdy from a python function' 
 login        = '' #your gmail account 
 password     = ''#your password
