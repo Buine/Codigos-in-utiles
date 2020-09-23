@@ -53,13 +53,15 @@ for i in range(0,len(amigos)):
     Juego[i][1] = amigos[i][1].replace('\n','').replace(' ','') #email giver
     
     nombreAmigo = Juego[i][0]
-    while(nombreAmigo==Juego[i][0]): #Not giving to himself
-        if(len(participantes)!=1):
-            nombreAmigo = participantes[random.randint(0,len(participantes)-1)] #take out the paper =)
-        else:
-            nombreAmigo = participantes[0] #last paper
-        Juego[i][2] = nombreAmigo #asign the reciver to the giver
-        participantes.pop(participantes.index(nombreAmigo)) #remove paper
+    if(len(participantes) > 1):
+        rand = random.randint(0, len(participantes)-1)
+        while participantes[rand] == Juego[i][0]: # Not to choose himself
+            rand = random.randint(0, len(participantes)-1)
+        nombreAmigo = participantes[rand] #take out the paper =)
+    else:
+        nombreAmigo = participantes[0] #last paper
+    Juego[i][2] = nombreAmigo #asign the reciver to the giver
+    participantes.pop(participantes.index(nombreAmigo)) #remove paper
 
 #mail redaction
 
